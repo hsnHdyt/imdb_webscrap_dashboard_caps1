@@ -75,7 +75,7 @@ docs/_build/
 target/
 
 # Jupyter Notebook
-.ipynb_checkpoints
+#.ipynb_checkpoints ##[01.12.2020]temporary remove for this capstone project
 
 # IPython
 profile_default/
