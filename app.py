@@ -96,7 +96,7 @@ def index():
     }
 
     ## [1]Barh Plot (most popular movie by `imdb_score`)
-    topseven_by_usersvote = df.sort_values('users_vote')['users_vote'].head(6).reset_index()
+    topseven_by_usersvote = df.sort_values('users_vote', ascending=True)['users_vote'].tail(6).reset_index()
     x_axis = topseven_by_usersvote['title']
     y_axis = topseven_by_usersvote['users_vote']
     
