@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="{{ url_for('static', filename='my_css.css') }}">
+</head>
+
+<body>
+    <!-- this for the box that countaints our plot -->
+    <div class="container-fluid"> 
+        <div class="jumbotron">
+            <div class="row">
+            <div class="col-md-10 col-lg-8 col-sm-10">
+                    <h1 class="mb-2">IMDb Web Scrap Analysis</h1>  <!-- You can change the title here -->
+                    
+                    <p class="mb-2">
+                        - (*)Released between Jan 1st, 2019 - Dec 31st, 2019
+                        <br> - <a href="https://www.imdb.com/search/title/?release_date=2019-01-01,2019-12-31" target="_blank">link web</a>
+                        <hr>
+                    </p>
+                    <br>
+                <h2 class='lead'>Top seven movies with highest users vote (*)</h2>
+                <p>
+                    {% if result != None %}
+                    <img src="data:image/png;base64,{{ result }}" width="700" height="">
+                    {% endif %}
+                </p>
+            </div>
+            <div class="col-md-10 col-lg-4 col-sm-10 mt-2">
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+            <div class="col-md-10 col-lg-9 col-sm-10">
+                <div class="card card-stats">
+                    <div class="card-header card-header-warning card-header-icon">
+                        <div class="card-icon">
+                            <i class="material-icons">list_alt</i>
+                        </div>
+                        <p class="card-category">The Highest Users Vote (*)</p>
+                        <h3 class="card-title">{{ stats['most_categories'] }}</h3>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="col-md-10 col-lg-9 col-sm-10">
+                    <div class="card card-stats">
+                        <div class="card-header card-header-warning card-header-icon">
+                            <div class="card-icon">
+                                <i class="material-icons">poll</i>
+                            </div>
+                            <p class="card-category">Most Users Votes Movie (*)</p>
+                            <h3 class="card-title">{{ stats['total'] }}</h3>
+                        </div>
+                    </div>
+            </div>
+            <br>
+            </div>
+            </div>
+            <div class="row">
+                    <div class="col-md-10 col-lg-6 col-sm-10">
+                            <div class="plot-area">
+                                <h2 class='lead'>Top seven movies with highest IMDb Rating (*)</h2>
+                                <div class="mt-4">
+                                <p>
+                                    {% if result2 != None %}
+                                    <img src="data:image/png;base64,{{ result2}}" width="700" height="">
+                                    {% endif %}
+                                </p>
+                            </div>
+                            </div>
+                        </div>
+                    <div class="col-md-10 col-lg-6 col-sm-10">
+                        <h2 class="lead">Top 10 Movies based on IMDb users vote (*)</h2>
+                        <div class="mt-4">
+                            {{ stats['rev_table'] | safe }}
+                        </div>
+                    </div>
+                </div>
+            <div class="row">
+                <div class="col-md-10 col-lg-6 col-sm-10">
+                    <div class="plot-area">
+                        <h2 class='lead'>IMDb's Score Distribution (*)</h2>
+                        <div class="mt-4">
+                            <p>
+                                {% if result3 != None %}
+                                <img src="data:image/png;base64,{{ result3}}" width="700" height="">
+                                {% endif %}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-10 col-lg-6 col-sm-10">
+                    <div class="plot-area">
+                        <h2 class='lead'>User's Vote Distribution (*)</h2>
+                        <div class="mt-4">
+                            <p>
+                                {% if result4 != None %}
+                                <img src="data:image/png;base64,{{ result4}}" width="700" height="">
+                                {% endif %}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+
+
+</html>
