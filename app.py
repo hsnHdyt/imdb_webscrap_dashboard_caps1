@@ -119,7 +119,7 @@ def index():
     
     ## [2]Scatter Plot (result2) >> {users_vote vs imdb_rating}
     ## Barh plot (most popular movie by `imdb_score`)
-    topseven_by_imdbrating = df.sort_values('imdb_rating')['imdb_rating'].head(6).reset_index()
+    topseven_by_imdbrating = df.sort_values('imdb_rating', ascending=True)['imdb_rating'].tail(6).reset_index()
     x_axis = topseven_by_imdbrating['title']
     y_axis = topseven_by_imdbrating['imdb_rating']
     
